@@ -23,12 +23,21 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="<?=APP_URL?>login/">Acceso<span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=APP_URL?>register/">Crear Cuenta</a>
-            </li>
+            <?php if(!isset($_SESSION["userdata"])): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=APP_URL?>login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link-important" href="<?=APP_URL?>register">Registro</a>
+                </li>
+            <?php else:?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?=APP_URL?>perfil"><?=$_SESSION["userdata"]["username"]?></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link-important" href="<?=APP_URL?>logout">Log Out</a>
+                </li>
+             <?php endif; ?>
             </ul>
         </div>  
     </div>

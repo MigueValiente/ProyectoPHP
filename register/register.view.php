@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control <?=(isset($errores["email"]))?"is-invalid":"";?>" id="email" name="email" aria-describedby="emailHelp" placeholder="Introduce tu email">
-                        <small id="emailHelp" class="form-text text-muted">No compartiremos tu email con nadie.</small>
+                        <small id="emailHelp" class="form-text text-muted">Tu email no lo sabran el resto de usuarios.</small>
                         <?php if(isset($errores["email"])): ?>
                             <div class="invalid-feedback">
                                 <ul>

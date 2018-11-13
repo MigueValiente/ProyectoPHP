@@ -2,6 +2,11 @@
     require_once '../setup.php';
     require_once "../database/conexion.php";
 
+    //Si la sesion esta iniciada reenvia al usuario a la pagina principal
+    if(isset($_SESSION["userdata"])){
+        header("Location: ".APP_URL);
+    }
+
     if(isset($_POST["registro"])){
         $name = $_POST["username"] ?? null;
         $email = $_POST["email"] ?? null;
@@ -10,6 +15,7 @@
 
         $errores = [];
         
+        //Nombre de usuario
         if(is_null($username) || $username == ""){
             $errores["username"]["vacio"] = "El campo nombre es obligatorio";
         }
