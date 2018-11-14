@@ -8,8 +8,13 @@
     }
 
     if(isset($_POST["registro"])){
-        $name = $_POST["username"] ?? null;
+        $name = $_POST["name"] ?? null;
+        $surname = $_POST["surname"] ?? null;
+        $username = $_POST["username"] ?? null;
         $email = $_POST["email"] ?? null;
+        $phone = $_POST["phone"] ?? null;
+        $provincia = $_POST["provincia"] ?? null;
+        $cuenta = $_POST["cuenta"] ?? null;
         $password = $_POST["password"] ?? null;
         $password_confirmation = $_POST["password_confirmation"] ?? null;
 
