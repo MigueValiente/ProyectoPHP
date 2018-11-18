@@ -27,7 +27,7 @@
         }
 
         if(strlen($name) < 3){
-            $errors['name']['length'] = "El nombre debe tener al menos 3 caracteres.";
+            $errores['name']['length'] = "El nombre debe tener al menos 3 caracteres.";
             $name = null;
         }
 
@@ -35,7 +35,7 @@
             $errores["name"]["regex"] = "El nombre no cumple con los siguientes requisitos:<br>
                                 <ul>
                                     <li>Debetener mínimo 3 caracteres.</li>
-                                    <li>Solo se admiten letras .</li>
+                                    <li>Solo se admiten letras.</li>
                                 <ul>";
             $name = null;
         }else{
@@ -50,7 +50,7 @@
         }
 
         if(strlen($surname) < 3){
-            $errors['surname']['length'] = "El nombre debe tener al menos 3 caracteres.";
+            $errores['surname']['length'] = "El nombre debe tener al menos 3 caracteres.";
             $surname = null;
         }
 
@@ -73,7 +73,7 @@
         }
 
         if(strlen($username) < 8){
-            $errors['username']['length'] = "El nombre de usuario debe tener al menos 8 caracteres.";
+            $errores['username']['length'] = "El nombre de usuario debe tener al menos 8 caracteres.";
             $username = null;
         }
         
@@ -105,7 +105,7 @@
         }
 
         if(strlen($phone) < 9){
-            $errors['phone']['length'] = "El telefono debe tener al menos 9 digitos.";
+            $errores['phone']['length'] = "El telefono debe tener al menos 9 digitos.";
             $phone = null;
         }
 

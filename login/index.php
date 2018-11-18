@@ -14,16 +14,16 @@ if(isset($_POST["login"])){
 
 
     if(empty($username)){
-        $errors["username"]["empty"] = "Debes introducir un nombre de usuario";
+        $errores["username"]["vacio"] = "Debes introducir un nombre de usuario";
         $username = null;
     }
 
     if(empty($password)){
-        $errors["password"]["empty"] = "Debes introducir la contraseña";
+        $errores["password"]["vacio"] = "Debes introducir la contraseña";
         $password = null;
     }
 
-    if(empty($errors)){
+    if(empty($errores)){
         //RECIBIDOS LOS DATOS
         //HAREMOS UNA CONSULTA A LA BASE DE DATOS
         $sql = "SELECT * FROM users WHERE username = '$username' LIMIT 1";
@@ -32,16 +32,22 @@ if(isset($_POST["login"])){
         if($login && mysqli_num_rows($login) == 1){
             
             $usuario = mysqli_fetch_assoc($login);
+            $result = null;
             
             if(password_verify($password,$usuario["password"])){
                 //CREO UNA SESION DE USUARIO
+                $password_segura = $usuario["password"];
                 $_SESSION["userdata"] = $usuario;
+                $query = "INSERT INTO logs VALUES(null,'$username','$password_segura',NOW(),'success')";
+                $result = mysqli_query($db, $query);
                 header("Location:".APP_URL);
             }else{
-                $errors["login"]["password"] = "La contraseña no es correcta";
+                $errores["login"]["password"] = "La contraseña no es correcta";
+                $query = "INSERT INTO logs VALUES(null,'$username','$password',NOW(),'fail')";
+                $result = mysqli_query($db, $query);
             }
         }else{
-            $errors["login"]["username"] = "El usuario no es correcto";
+            $errores["login"]["username"] = "El usuario no es correcto";
         }
     }
 }

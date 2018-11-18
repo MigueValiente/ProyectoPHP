@@ -1,6 +1,7 @@
 <?php 
     require_once '../setup.php';
     require_once "../includes/header.php";
+    require_once "../functions/helpers.php";
 ?>
 <!-- Body -->
 <div class="container">
