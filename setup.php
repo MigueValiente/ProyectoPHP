@@ -14,3 +14,6 @@ define('APP_PATH', __DIR__);
 
 /** Nombre de la aplicacion */
 define('APP_NAME', "Project");
+
+//Iniciar la sesion
+session_start();

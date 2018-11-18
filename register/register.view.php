@@ -170,7 +170,7 @@
                             <option value="E">Empleado</option>
                             <option value="C">Cliente</option>
                         </select>
-                        <small id="cuentaHelp" class="form-text text-muted">Empleado = Buscas trabajo/Cliente = Proporcionas trabajo)</small>
+                        <small id="cuentaHelp" class="form-text text-muted">Empleado = Buscas trabajo | Cliente = Proporcionas trabajo</small>
                         <?php if(isset($errores["cuenta"])): ?>
                             <div class="invalid-feedback">
                                 <ul>

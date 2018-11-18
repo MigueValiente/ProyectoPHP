@@ -23,7 +23,7 @@ if(isset($_POST["login"])){
         $password = null;
     }
 
-    if(empty($error)){
+    if(empty($errors)){
         //RECIBIDOS LOS DATOS
         //HAREMOS UNA CONSULTA A LA BASE DE DATOS
         $sql = "SELECT * FROM users WHERE username = '$username' LIMIT 1";
