@@ -16,15 +16,9 @@
                         <input type="text" class="form-control <?=(isset($errores["name"]))?"is-invalid":"";?>"id="name" name="name" aria-describedby="nameHelp" placeholder="Introduce tu nombre">
                         <small id="nameHelp" class="form-text text-muted">Debe tener como mínimo 3 caracteres </small>
                         <!-- MENSAJE DE ERROR -->
-                        <?php if(isset($errores["name"])): ?>
-                            <div class="invalid-feedback">
-                                <ul>
-                                    <?php foreach($errores["name"] as $message): ?>
-                                        <li><?=$message?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
-                        <?php endif; ?> 
+                            <?php if(isset($errores["name"])): ?>
+                            <?php comprobarErrores($errores["name"]); ?>
+                            <?php endif; ?>
                     </div>
 
                     <!-- APELLIDO -->
@@ -34,13 +28,7 @@
                         <small id="emailHelp" class="form-text text-muted">Debe tener como mínimo 3 caracteres </small>
                         <!-- MENSAJE DE ERROR -->
                         <?php if(isset($errores["surname"])): ?>
-                            <div class="invalid-feedback">
-                                <ul>
-                                    <?php foreach($errores["surname"] as $message): ?>
-                                        <li><?=$message?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
+                        <?php comprobarErrores($errores["surname"]); ?>
                         <?php endif; ?> 
                     </div>
 
@@ -51,13 +39,7 @@
                         <small id="userHelp" class="form-text text-muted">Debe tener como mínimo 8 caracteres con números y letras minúsculas. Con este usuario accederas a la página.</small>
                         <!-- MENSAJE DE ERROR -->
                         <?php if(isset($errores["username"])): ?>
-                            <div class="invalid-feedback">
-                                <ul>
-                                    <?php foreach($errores["username"] as $message): ?>
-                                        <li><?=$message?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
+                        <?php comprobarErrores($errores["username"]); ?>
                         <?php endif; ?> 
                     </div>
 
@@ -67,13 +49,7 @@
                         <input type="email" class="form-control <?=(isset($errores["email"]))?"is-invalid":"";?>" id="email" name="email" aria-describedby="emailHelp" placeholder="Introduce tu email">
                         <small id="emailHelp" class="form-text text-muted">Tu email no lo sabrán el resto de usuarios.</small>
                         <?php if(isset($errores["email"])): ?>
-                            <div class="invalid-feedback">
-                                <ul>
-                                    <?php foreach($errores["email"] as $message): ?>
-                                        <li><?=$message?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
+                        <?php comprobarErrores($errores["email"]); ?>
                         <?php endif; ?>
                     </div>
 
@@ -83,13 +59,7 @@
                         <input type="text" class="form-control <?=(isset($errores["phone"]))?"is-invalid":"";?>" id="phone" name="phone" aria-describedby="phoneHelp" placeholder="Introduce tu telefono">
                         <small id="phoneHelp" class="form-text text-muted">Debe tener 9 digitos.</small>
                         <?php if(isset($errores["phone"])): ?>
-                            <div class="invalid-feedback">
-                                <ul>
-                                    <?php foreach($errores["phone"] as $message): ?>
-                                        <li><?=$message?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
+                        <?php comprobarErrores($errores["phone"]); ?>
                         <?php endif; ?>
                     </div>
 
@@ -153,13 +123,7 @@
                             <option value="50">Zaragoza</option>
                         </select>
                         <?php if(isset($errores["provincia"])): ?>
-                            <div class="invalid-feedback">
-                                <ul>
-                                    <?php foreach($errores["provincia"] as $message): ?>
-                                        <li><?=$message?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
+                        <?php comprobarErrores($errores["provincia"]); ?>
                         <?php endif; ?>
                     </div>
 
@@ -173,13 +137,7 @@
                         </select>
                         <small id="cuentaHelp" class="form-text text-muted">Empleado = Buscas trabajo | Cliente = Proporcionas trabajo</small>
                         <?php if(isset($errores["cuenta"])): ?>
-                            <div class="invalid-feedback">
-                                <ul>
-                                    <?php foreach($errores["cuenta"] as $message): ?>
-                                        <li><?=$message?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
+                        <?php comprobarErrores($errores["cuenta"]); ?>
                         <?php endif; ?>
                     </div>
 
@@ -189,13 +147,7 @@
                         <input type="password" class="form-control <?=(isset($errores["password"]))?"is-invalid":"";?>" id="password" name="password" placeholder="Introduce tu contraseña">
                         <small id="passwordHelp" class="form-text text-muted">Debe tener 6 caracteres como mínimo</small>
                         <?php if(isset($errores["password"])): ?>
-                            <div class="invalid-feedback">
-                                <ul>
-                                    <?php foreach($errores["password"] as $message): ?>
-                                        <li><?=$message?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
+                        <?php comprobarErrores($errores["password"]); ?>
                         <?php endif; ?>
                     </div>
 
@@ -204,13 +156,7 @@
                         <label for="password_confirmation">Confirmar Contraseña</label>
                         <input type="password" class="form-control <?=(isset($errores["password_confirmation"]))?"is-invalid":"";?>" id="password_confirmation" name="password_confirmation" placeholder="Vuelva a introducir la contraseña">
                         <?php if(isset($errores["password_confirmation"])): ?>
-                            <div class="invalid-feedback">
-                                <ul>
-                                    <?php foreach($errores["password_confirmation"] as $message): ?>
-                                        <li><?=$message?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
+                        <?php comprobarErrores($errores["password_confirmation"]); ?>
                         <?php endif; ?>
                     </div>
                     

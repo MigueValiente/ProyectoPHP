@@ -6,18 +6,15 @@ function printDataFormater($data){
     echo "</pre>";
 }
 
-function comprobarErrores($nombreError){
-    $resultado = "";
-    if(isset($errores[$nombreError])){
-        $resultado.="<div class='invalid-feedback'><br>";
-        $resultado.= "<ul><br>";
-        foreach($errores[$nombreError] as $message){
-            $resultado.="<li><?=$message?></li><br>";
-        }
-        $resultado.="</ul><br>";
-        $resultado.="</div><br>";        
-    }                     
-    return $resultado;
+function comprobarErrores($arrayErrores){
+    print('<div class="invalid-feedback">');
+        print('<ul>');
+            foreach($arrayErrores as $message){
+                print('<li>'.$message.'</li>');
+            }
+        print('</ul>');
+    print('</div>');         
 }
+
 
 ?>
