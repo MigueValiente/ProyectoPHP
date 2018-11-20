@@ -16,5 +16,9 @@ function comprobarErrores($arrayErrores){
     print('</div>');         
 }
 
+function guardarLogin(){
+    
+}
+
 
 ?>
