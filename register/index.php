@@ -22,12 +22,12 @@
         
         //NAME
         if(empty($name)){
-            $errores["name"]["vacio"] = "El campo nombre es obligatorio";
+            $errores["name"]["vacio"] = "El campo nombre es obligatorio.<br>";
             $name = null;
         }
 
         if(strlen($name) < 3){
-            $errores['name']['length'] = "El nombre debe tener al menos 3 caracteres.";
+            $errores['name']['length'] = "El nombre debe tener al menos 3 caracteres.<br>";
             $name = null;
         }
 
@@ -45,12 +45,12 @@
         //SURNAME
         var_dump($surname);
         if(empty($surname)){
-            $errores["surname"]["vacio"] = "El campo apellido es obligatorio";
+            $errores["surname"]["vacio"] = "El campo apellido es obligatorio.<br>";
             $surname = null;
         }
 
         if(strlen($surname) < 3){
-            $errores['surname']['length'] = "El nombre debe tener al menos 3 caracteres.";
+            $errores['surname']['length'] = "El nombre debe tener al menos 3 caracteres.<br>";
             $surname = null;
         }
 
@@ -68,12 +68,12 @@
         //USERNAME
         var_dump($username);
         if(empty($username)){
-            $errores["username"]["vacio"] = "El campo usuario es obligatorio";
+            $errores["username"]["vacio"] = "El campo usuario es obligatorio.<br>";
             $username = null;
         }
 
         if(strlen($username) < 8){
-            $errores['username']['length'] = "El nombre de usuario debe tener al menos 8 caracteres.";
+            $errores['username']['length'] = "El nombre de usuario debe tener al menos 8 caracteres.<br>";
             $username = null;
         }
         
@@ -88,19 +88,19 @@
 
         //EMAIL
         if(empty($email)){
-            $errores["email"]["vacio"] = "El campo email es obligatorio";
+            $errores["email"]["vacio"] = "El campo email es obligatorio.<br>";
             $email = null;
         }
 
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $errores["email"]["regex"] = "El email no es valido";
+            $errores["email"]["regex"] = "El email no es valido.<br>";
             $email = null;
         }
 
         //TELEFONO
 
         if(empty($phone)){
-            $errores["phone"]["vacio"] = "El campo telefono es obligatorio";
+            $errores["phone"]["vacio"] = "El campo telefono es obligatorio.<br>";
             $phone = null;
         }
 
