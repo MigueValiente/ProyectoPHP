@@ -1,6 +1,7 @@
 <?php
 require_once '../setup.php';
 require_once "../database/conexion.php";
+require_once '../database/helpers.php';
 
 //Si la sesion esta iniciada reenvia al usuario a la pagina principal
 if(isset($_SESSION["userdata"])){
@@ -29,26 +30,28 @@ if(isset($_POST["login"])){
         $sql = "SELECT * FROM users WHERE username = '$username' LIMIT 1";
         $login = mysqli_query($db, $sql);
 
-        if($login && mysqli_num_rows($login) == 1){
-            
+        if( $login && mysqli_num_rows($login)==1 ){
             $usuario = mysqli_fetch_assoc($login);
-            $result = null;
-            
-            if(password_verify($password,$usuario["password"])){
-                //CREO UNA SESION DE USUARIO
-                $password_segura = $usuario["password"];
-                $_SESSION["userdata"] = $usuario;
-                //guardar en los logs un enum para el status
-                $query = "INSERT INTO logs VALUES(null,'$username',NOW(),'success')";
-                $result = mysqli_query($db, $query);
-                header("Location:".APP_URL);
+    
+            // Comprobar la contraseña
+            if( password_verify($password, $usuario['password']) ) {
+                // Guardar login
+                guardarLogin($db, $username, 'OK');
+
+                // Utilizar una sesión para guardar los datos del usuario logueado
+                $_SESSION['usuario'] = $usuario;
+                header("Location: ".APP_URL);
             }else{
-                $errores["login"]["password"] = "La contraseña no es correcta";
-                $query = "INSERT INTO logs VALUES(null,'$username',NOW(),'fail')";
-                $result = mysqli_query($db, $query);
+                // Guardar login si la contraseña no es correcta
+                guardarLogin($db, $username, 'WRONG_PASS');
+
+                // Si algo falla enviar una sesión con el fallo
+                $errors['login']['password'] = "La contraseña no es correcta.";
             }
         }else{
-            $errores["login"]["username"] = "Los datos no son correctos";
+            // Guardar login sin el usuario no es correcto
+            guardarLogin($db, $username, 'WRONG_USER');
+            $errors['login']['data'] = "Los datos no son correctos.";
         }
     }
 }
