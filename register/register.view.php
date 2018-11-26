@@ -13,60 +13,50 @@
                     <!-- NOMBRE -->
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" class="form-control <?=(isset($errores["name"]))?"is-invalid":"";?>"id="name" name="name" aria-describedby="nameHelp" placeholder="Introduce tu nombre">
+                        <input type="text" class="form-control <?=($errores["name"])?"is-invalid":"";?>"id="name" name="name" aria-describedby="nameHelp" placeholder="Introduce tu nombre" value="<?=($name??'')?>">
                         <small id="nameHelp" class="form-text text-muted">Debe tener como mínimo 3 caracteres </small>
                         <!-- MENSAJE DE ERROR -->
-                            <?php if(isset($errores["name"])): ?>
-                            <?php comprobarErrores($errores["name"]); ?>
-                            <?php endif; ?>
+                        <?=validationDiv('name','invalid-feedback')?> 
                     </div>
 
                     <!-- APELLIDO -->
                     <div class="form-group">
                         <label for="surname">Apellido</label>
-                        <input type="text" class="form-control <?=(isset($errores["surname"]))?"is-invalid":"";?>"id="surname" name="surname" aria-describedby="nameHelp" placeholder="Introduce tu nombre">
-                        <small id="emailHelp" class="form-text text-muted">Debe tener como mínimo 3 caracteres </small>
+                        <input type="text" class="form-control <?=($errores["surname"])?"is-invalid":"";?>"id="surname" name="surname" aria-describedby="surnameHelp" placeholder="Introduce tu apellido" value="<?=($surname??'')?>">
+                        <small id="surnameHelp" class="form-text text-muted">Debe tener como mínimo 3 caracteres </small>
                         <!-- MENSAJE DE ERROR -->
-                        <?php if(isset($errores["surname"])): ?>
-                        <?php comprobarErrores($errores["surname"]); ?>
-                        <?php endif; ?> 
+                        <?=validationDiv('surname','invalid-feedback')?> 
                     </div>
 
                     <!-- NOMBRE DE USUARIO -->
                     <div class="form-group">
-                        <label for="username">Usuario</label>
-                        <input type="text" class="form-control <?=(isset($errores["username"]))?"is-invalid":"";?>"id="username" name="username" aria-describedby="nameHelp" placeholder="Introduce tu nombre">
-                        <small id="userHelp" class="form-text text-muted">Debe tener como mínimo 8 caracteres con números y letras minúsculas. Con este usuario accederas a la página.</small>
+                        <label for="username">Nombre de usuario</label>
+                        <input type="text" class="form-control <?=($errores['username'])?"is-invalid":""?>" id="username" name="username" aria-describedby="usernameHelp" placeholder="Introduce un nombre de usuario" value="<?=($username??'')?>">
+                        <small id="usernameHelp" class="form-text text-muted">Debe tener como mínimo 8 caracteres con números y letras minúsculas.</small>
                         <!-- MENSAJE DE ERROR -->
-                        <?php if(isset($errores["username"])): ?>
-                        <?php comprobarErrores($errores["username"]); ?>
-                        <?php endif; ?> 
+                        <?=validationDiv('username','invalid-feedback')?>
                     </div>
 
                     <!-- EMAIL -->
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control <?=(isset($errores["email"]))?"is-invalid":"";?>" id="email" name="email" aria-describedby="emailHelp" placeholder="Introduce tu email">
+                        <input type="email" class="form-control <?=($errores["email"])?"is-invalid":"";?>" id="email" name="email" aria-describedby="emailHelp" placeholder="Introduce tu email" value="<?=($email??'')?>">
                         <small id="emailHelp" class="form-text text-muted">Tu email no lo sabrán el resto de usuarios.</small>
-                        <?php if(isset($errores["email"])): ?>
-                        <?php comprobarErrores($errores["email"]); ?>
-                        <?php endif; ?>
+                        <?=validationDiv('email','invalid-feedback')?>
                     </div>
 
                     <!-- TELEFONO -->
                     <div class="form-group">
                         <label for="phone">Telefono</label>
-                        <input type="text" class="form-control <?=(isset($errores["phone"]))?"is-invalid":"";?>" id="phone" name="phone" aria-describedby="phoneHelp" placeholder="Introduce tu telefono">
+                        <input type="text" class="form-control <?=($errores["phone"])?"is-invalid":"";?>" id="phone" name="phone" aria-describedby="phoneHelp" placeholder="Introduce tu telefono" value="<?=($phone??'')?>">
                         <small id="phoneHelp" class="form-text text-muted">Debe tener 9 digitos.</small>
-                        <?php if(isset($errores["phone"])): ?>
-                        <?php comprobarErrores($errores["phone"]); ?>
-                        <?php endif; ?>
+                        <?=validationDiv('phone','invalid-feedback')?>
                     </div>
 
                     <!-- PROVINCIA -->
                     <div class="form-group">
                         <label for="provincia">Provincia</label>
-                        <select class="form-control <?=(isset($errores["provincia"]))?"is-invalid":"";?>" id="provincia" name="provincia" aria-describedby="provinciaHelp">
+                        <select class="form-control <?=($errores["provincia"])?"is-invalid":"";?>" id="provincia" name="provincia" aria-describedby="provinciaHelp">
                             <option value="">- selecciona -</option>
                             <option value="15">A coruña</option>
                             <option value="1">Álava</option>
@@ -122,42 +112,34 @@
                             <option value="49">Zamora</option>
                             <option value="50">Zaragoza</option>
                         </select>
-                        <?php if(isset($errores["provincia"])): ?>
-                        <?php comprobarErrores($errores["provincia"]); ?>
-                        <?php endif; ?>
+                        <?=validationDiv('provincia','invalid-feedback')?>
                     </div>
 
                     <!-- TIPO DE CUENTA -->
                     <div class="form-group">
                         <label for="cuenta">Tipo de Cuenta</label>
-                        <select class="form-control <?=(isset($errores["cuenta"]))?"is-invalid":"";?>" id="cuenta" name="cuenta" aria-describedby="cuentaHelp">
+                        <select class="form-control <?=($errores["cuenta"])?"is-invalid":"";?>" id="cuenta" name="cuenta" aria-describedby="cuentaHelp">
                             <option value="">- selecciona -</option>
                             <option value="E">Empleado</option>
                             <option value="C">Cliente</option>
                         </select>
                         <small id="cuentaHelp" class="form-text text-muted">Empleado = Buscas trabajo | Cliente = Proporcionas trabajo</small>
-                        <?php if(isset($errores["cuenta"])): ?>
-                        <?php comprobarErrores($errores["cuenta"]); ?>
-                        <?php endif; ?>
+                        <?=validationDiv('cuenta','invalid-feedback')?>
                     </div>
 
                     <!-- CONTRASEÑA -->
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="password" class="form-control <?=(isset($errores["password"]))?"is-invalid":"";?>" id="password" name="password" placeholder="Introduce tu contraseña">
+                        <input type="password" class="form-control <?=($errores["password"])?"is-invalid":"";?>" id="password" name="password" placeholder="Introduce tu contraseña">
                         <small id="passwordHelp" class="form-text text-muted">Debe tener 6 caracteres como mínimo</small>
-                        <?php if(isset($errores["password"])): ?>
-                        <?php comprobarErrores($errores["password"]); ?>
-                        <?php endif; ?>
+                        <?=validationDiv('password','invalid-feedback')?>
                     </div>
 
                     <!-- CONFIRMACION DE LA CONTRASEÑA -->
                     <div class="form-group">
                         <label for="password_confirmation">Confirmar Contraseña</label>
-                        <input type="password" class="form-control <?=(isset($errores["password_confirmation"]))?"is-invalid":"";?>" id="password_confirmation" name="password_confirmation" placeholder="Vuelva a introducir la contraseña">
-                        <?php if(isset($errores["password_confirmation"])): ?>
-                        <?php comprobarErrores($errores["password_confirmation"]); ?>
-                        <?php endif; ?>
+                        <input type="password" class="form-control <?=($errores["password_confirmation"])?"is-invalid":"";?>" id="password_confirmation" name="password_confirmation" placeholder="Vuelva a introducir la contraseña">
+                        <?=validationDiv('password_confirmation','invalid-feedback')?>
                     </div>
                     
                     <!-- BOTON DE ENVIAR -->

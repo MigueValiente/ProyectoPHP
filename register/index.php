@@ -22,12 +22,12 @@
         
         //NAME
         if(empty($name)){
-            $errores["name"]["vacio"] = "El campo nombre es obligatorio";
+            $errores["name"]["vacio"] = "El campo nombre es obligatorio<br>";
             $name = null;
         }
 
         if(strlen($name) < 3){
-            $errores['name']['length'] = "El nombre debe tener al menos 3 caracteres.";
+            $errores['name']['length'] = "El nombre debe tener al menos 3 caracteres.<br>";
             $name = null;
         }
 
@@ -43,14 +43,14 @@
         }
 
         //SURNAME
-        var_dump($surname);
+        //var_dump($surname);
         if(empty($surname)){
-            $errores["surname"]["vacio"] = "El campo apellido es obligatorio";
+            $errores["surname"]["vacio"] = "El campo apellido es obligatorio.<br>";
             $surname = null;
         }
 
         if(strlen($surname) < 3){
-            $errores['surname']['length'] = "El nombre debe tener al menos 3 caracteres.";
+            $errores['surname']['length'] = "El nombre debe tener al menos 3 caracteres.<br>";
             $surname = null;
         }
 
@@ -66,14 +66,14 @@
         }
 
         //USERNAME
-        var_dump($username);
+        //var_dump($username);
         if(empty($username)){
-            $errores["username"]["vacio"] = "El campo usuario es obligatorio";
+            $errores["username"]["vacio"] = "El campo usuario es obligatorio.<br>";
             $username = null;
         }
 
         if(strlen($username) < 8){
-            $errores['username']['length'] = "El nombre de usuario debe tener al menos 8 caracteres.";
+            $errores['username']['length'] = "El nombre de usuario debe tener al menos 8 caracteres.<br>";
             $username = null;
         }
         
@@ -88,24 +88,24 @@
 
         //EMAIL
         if(empty($email)){
-            $errores["email"]["vacio"] = "El campo email es obligatorio";
+            $errores["email"]["vacio"] = "El campo email es obligatorio.<br>";
             $email = null;
         }
 
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $errores["email"]["regex"] = "El email no es valido";
+            $errores["email"]["regex"] = "El email no es valido.<br>";
             $email = null;
         }
 
         //TELEFONO
 
         if(empty($phone)){
-            $errores["phone"]["vacio"] = "El campo telefono es obligatorio";
+            $errores["phone"]["vacio"] = "El campo telefono es obligatorio.<br>";
             $phone = null;
         }
 
         if(strlen($phone) < 9){
-            $errores['phone']['length'] = "El telefono debe tener al menos 9 digitos.";
+            $errores['phone']['length'] = "El telefono debe tener al menos 9 digitos.<br>";
             $phone = null;
         }
 
@@ -124,7 +124,7 @@
 
         //PROVINCIA
         if(empty($provincia)){
-            $errores["provincia"]["vacio"] = "Debe seleccionar una provincia";
+            $errores["provincia"]["vacio"] = "Debe seleccionar una provincia.<br>";
             $provincia = null;
         }else{
             $provincia = intval($provincia);
@@ -132,14 +132,14 @@
         
         //CUENTA
         if(empty($cuenta)){
-            $errores["cuenta"]["vacio"] = "Debe seleccionar un tipo de cuenta.";
+            $errores["cuenta"]["vacio"] = "Debe seleccionar un tipo de cuenta.<br>";
             $cuenta = null;
         }
 
 
         //CONTRASEÑAS
         if(empty($password)){
-            $errores["password"]["vacio"] = "El campo contraseña es obligatorio";
+            $errores["password"]["vacio"] = "El campo contraseña es obligatorio.<br>";
         }
 
         if(strlen($password) < 6){
@@ -151,11 +151,11 @@
         }
 
         if(empty($password_confirmation)){
-            $errores["password_confirmation"]["vacio"] = "El campo contraseña es obligatorio";
+            $errores["password_confirmation"]["vacio"] = "El campo contraseña es obligatorio.<br>";
         }
 
         if($password != $password_confirmation){
-            $errores["password_confirmation"]["comparacion"] = "Las contraseñas no coinciden";
+            $errores["password_confirmation"]["comparacion"] = "Las contraseñas no coinciden.<br>";
         }
 
         if( empty($errores)){
