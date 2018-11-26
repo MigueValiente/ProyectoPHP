@@ -35,5 +35,25 @@ function validationDiv($data, $type) {
     return $div;
 }
 
+function validationDiv($data, $type) {
+    global $errores;
+    $div = "";
+    if( !empty($errores[$data]) ){
+        
+        $div .= ($type=="invalid-feedback"?
+                    '<div class="invalid-feedback">':
+                    '<div class="alert alert-danger" role="alert">');
+        foreach ($errores[$data] as $error) {
+            $div .= $error;
+        }
+        $div .= '</div>';
+    }
+    return $div;
+}
+
+function guardarLogin(){
+    
+}
+
 
 ?>

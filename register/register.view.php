@@ -16,7 +16,11 @@
                         <input type="text" class="form-control <?=($errores["name"])?"is-invalid":"";?>"id="name" name="name" aria-describedby="nameHelp" placeholder="Introduce tu nombre" value="<?=($name??'')?>">
                         <small id="nameHelp" class="form-text text-muted">Debe tener como mínimo 3 caracteres </small>
                         <!-- MENSAJE DE ERROR -->
+<<<<<<< HEAD
                         <?=validationDiv('name','invalid-feedback')?> 
+=======
+                        <?= validationDiv("name","invalid-feedback") ?>
+>>>>>>> 39a2a6e2db8a70434ee88e833f0466c26af346bc
                     </div>
 
                     <!-- APELLIDO -->
@@ -25,16 +29,28 @@
                         <input type="text" class="form-control <?=($errores["surname"])?"is-invalid":"";?>"id="surname" name="surname" aria-describedby="surnameHelp" placeholder="Introduce tu apellido" value="<?=($surname??'')?>">
                         <small id="surnameHelp" class="form-text text-muted">Debe tener como mínimo 3 caracteres </small>
                         <!-- MENSAJE DE ERROR -->
+<<<<<<< HEAD
                         <?=validationDiv('surname','invalid-feedback')?> 
+=======
+                        <?= validationDiv("surname","invalid-feedback") ?>
+>>>>>>> 39a2a6e2db8a70434ee88e833f0466c26af346bc
                     </div>
 
                     <!-- NOMBRE DE USUARIO -->
                     <div class="form-group">
+<<<<<<< HEAD
                         <label for="username">Nombre de usuario</label>
                         <input type="text" class="form-control <?=($errores['username'])?"is-invalid":""?>" id="username" name="username" aria-describedby="usernameHelp" placeholder="Introduce un nombre de usuario" value="<?=($username??'')?>">
                         <small id="usernameHelp" class="form-text text-muted">Debe tener como mínimo 8 caracteres con números y letras minúsculas.</small>
                         <!-- MENSAJE DE ERROR -->
                         <?=validationDiv('username','invalid-feedback')?>
+=======
+                        <label for="username">Usuario</label>
+                        <input type="text" class="form-control <?=(isset($errores["username"]))?"is-invalid":"";?>"id="username" name="username" aria-describedby="nameHelp" placeholder="Introduce tu nombre">
+                        <small id="userHelp" class="form-text text-muted">Debe tener como mínimo 8 caracteres con números y letras minúsculas. Con este usuario accederas a la página.</small>
+                        <!-- MENSAJE DE ERROR -->   
+                        <?= validationDiv("username","invalid-feedback") ?>
+>>>>>>> 39a2a6e2db8a70434ee88e833f0466c26af346bc
                     </div>
 
                     <!-- EMAIL -->
@@ -42,7 +58,11 @@
                         <label for="email">Email</label>
                         <input type="email" class="form-control <?=($errores["email"])?"is-invalid":"";?>" id="email" name="email" aria-describedby="emailHelp" placeholder="Introduce tu email" value="<?=($email??'')?>">
                         <small id="emailHelp" class="form-text text-muted">Tu email no lo sabrán el resto de usuarios.</small>
+<<<<<<< HEAD
                         <?=validationDiv('email','invalid-feedback')?>
+=======
+                        <?= validationDiv("email","invalid-feedback") ?>
+>>>>>>> 39a2a6e2db8a70434ee88e833f0466c26af346bc
                     </div>
 
                     <!-- TELEFONO -->
@@ -50,7 +70,11 @@
                         <label for="phone">Telefono</label>
                         <input type="text" class="form-control <?=($errores["phone"])?"is-invalid":"";?>" id="phone" name="phone" aria-describedby="phoneHelp" placeholder="Introduce tu telefono" value="<?=($phone??'')?>">
                         <small id="phoneHelp" class="form-text text-muted">Debe tener 9 digitos.</small>
+<<<<<<< HEAD
                         <?=validationDiv('phone','invalid-feedback')?>
+=======
+                        <?= validationDiv("phone","invalid-feedback") ?>
+>>>>>>> 39a2a6e2db8a70434ee88e833f0466c26af346bc
                     </div>
 
                     <!-- PROVINCIA -->

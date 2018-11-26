@@ -38,20 +38,31 @@ if(isset($_POST["login"])){
                 //CREO UNA SESION DE USUARIO
                 $password_segura = $usuario["password"];
                 $_SESSION["userdata"] = $usuario;
-                $query = "INSERT INTO logs VALUES(null,'$username','$password_segura',NOW(),'success')";
+                //guardar en los logs un enum para el status
+                $query = "INSERT INTO logs VALUES(null,'$username',NOW(),'success')";
                 $result = mysqli_query($db, $query);
                 header("Location:".APP_URL);
             }else{
                 $errores["login"]["password"] = "La contraseña no es correcta";
-                $query = "INSERT INTO logs VALUES(null,'$username','$password',NOW(),'fail')";
+                $query = "INSERT INTO logs VALUES(null,'$username',NOW(),'fail')";
                 $result = mysqli_query($db, $query);
             }
         }else{
-            $errores["login"]["username"] = "El usuario no es correcto";
+            $errores["login"]["username"] = "Los datos no son correctos";
         }
     }
 }
 
 require_once "login.view.php";
 ?>
+
+
+<!-- CREATE TABLE logins (
+	`id` int PRIMARY KEY AUTO_INCREMENT,
+  	`username` varchar(255) NOT NULL,
+  	`ip` varchar(255) NOT NULL,
+  	`agent` varchar(255) NOT NULL,
+  	`status` ENUM(`OK`,`FAULT`) NOT NULL,
+  	`created_at` TIMESTAMP NOT NULL
+); -->
 

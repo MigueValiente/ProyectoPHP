@@ -22,7 +22,7 @@
         
         //NAME
         if(empty($name)){
-            $errores["name"]["vacio"] = "El campo nombre es obligatorio<br>";
+            $errores["name"]["vacio"] = "El campo nombre es obligatorio.<br>";
             $name = null;
         }
 
