@@ -1,11 +1,12 @@
 <?php
     require_once '../setup.php';
     require_once '../includes/header.php'; 
+    require_once '../functions/helpers.php';
 ?>
 <div class="container">
     <div class="offset-3 col-6 pt-4 pb-4">
         <form action="" method="POST" novalidate>
-        <div class="form-group">
+            <div class="form-group">
                 <label for="username">Nombre de usuario</label>
                 <input type="text" class="form-control <?=($errores['username'])?"is-invalid":""?>" id="username" name="username" aria-describedby="usernameHelp" placeholder="Introduce un nombre de usuario" value="<?=($username??'')?>">
                 <small id="usernameHelp" class="form-text text-muted">Debe tener como mínimo 8 caracteres con números y letras minúsculas.</small>
@@ -18,7 +19,7 @@
                 <small id="passwordHelp" class="form-text text-muted">Debe tener 6 caracteres como mínimo</small>
                 <?= validationDiv("password","invalid-feedback") ?>
             </div>
-            <?= validationDiv("username","alert") ?>
+            <?= validationDiv("login","alert") ?>
             <button type="submit" name="login" class="btn btn-primary">Entrar</button>
         </form>
     </div>

@@ -7,7 +7,8 @@ $urlParts = explode("/",$_SERVER['REQUEST_URI']);
 $request = $urlParts[1]."/";
 
 /** URL principal de la aplicacion */
-define('APP_URL', $url.$serverName.$request);
+// define('APP_URL', $url.$serverName.$request);
+define('APP_URL', $_SERVER['REQUEST_SCHEME']."://".$_SERVER['HTTP_HOST']."/".'ProyectoPHP/');
 
 /**Directorio principal de la aplicacion en el servidor */
 define('APP_PATH', __DIR__);

@@ -3,7 +3,7 @@
     require_once "../database/conexion.php";
 
     //Si la sesion esta iniciada reenvia al usuario a la pagina principal
-    if(isset($_SESSION["userdata"])){
+    if(isset($_SESSION["usuario"])){
         header("Location: ".APP_URL);
     }
 
@@ -118,9 +118,9 @@
             $phone = null;
         }
 
-        if(empty($error["phone"])){
-            $phone = intval($phone);
-        }
+        // if(empty($errores["phone"])){
+        //     $phone = intval($phone);
+        // }
 
         //PROVINCIA
         if(empty($provincia)){

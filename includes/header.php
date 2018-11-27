@@ -23,45 +23,48 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-            <?php if(!isset($_SESSION["userdata"])): ?>
+            <?php if(!isset($_SESSION["usuario"])): ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?=APP_URL?>login">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link link-important" href="<?=APP_URL?>register">Registro</a>
                 </li>
-            <?php elseif($_SESSION["userdata"]["count"] == "C"):?>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-                        Trabajos
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Mis Ofertas</a>
-                        <a class="dropdown-item" href="<?=APP_URL?>create_job">Crear Trabajo</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?=APP_URL?>perfil"><?=$_SESSION["userdata"]["username"]?></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link link-important" href="<?=APP_URL?>logout">Log Out</a>
-                </li>
-            <?php else: ?>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-                        Trabajos
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Mis Trabajos</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?=APP_URL?>profile"><?=$_SESSION["userdata"]["username"]?></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link link-important" href="<?=APP_URL?>logout">Log Out</a>
-                </li>
-             <?php endif; ?>
+                <?php else: ?>
+                    <?php if($_SESSION["usuario"]["count"] == "C"):?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="<?=APP_URL?>" id="navbarDropdown" role="button" data-toggle="dropdown">
+                                Trabajos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Mis Ofertas</a>
+                                <a class="dropdown-item" href="<?=APP_URL?>create_job">Crear Trabajo</a>
+                            </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?=APP_URL?>perfil"><?=$_SESSION["usuario"]["username"]?></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link-important" href="<?=APP_URL?>logout">Log Out</a>
+                            </li>
+                    <?php else: ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="<?=APP_URL?>" id="navbarDropdown" role="button" data-toggle="dropdown">
+                                Trabajos
+                            </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Mis Trabajos</a>
+                        </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?=APP_URL?>profile"><?=$_SESSION["usuario"]["username"]?></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-important" href="<?=APP_URL?>logout">Log Out</a>
+                        </li>
+                    <?php endif; ?>
+                <?php endif; ?>
+            
             </ul>
         </div>  
     </div>

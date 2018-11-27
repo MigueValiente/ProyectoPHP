@@ -1,9 +1,10 @@
 <?php
 require_once '../setup.php';
 require_once "../database/conexion.php";
+require_once '../database/saveLogs.php';
 
 //Si la sesion esta iniciada reenvia al usuario a la pagina principal
-if(isset($_SESSION["userdata"])){
+if(isset($_SESSION["usuario"])){
     header("Location: ".APP_URL);
 }
 
@@ -14,12 +15,12 @@ if(isset($_POST["login"])){
 
 
     if(empty($username)){
-        $errores["username"]["vacio"] = "Debes introducir un nombre de usuario";
+        $errores["username"]["vacio"] = "Debes introducir un nombre de usuario.<br>";
         $username = null;
     }
 
     if(empty($password)){
-        $errores["password"]["vacio"] = "Debes introducir la contraseña";
+        $errores["password"]["vacio"] = "Debes introducir la contraseña.<br>";
         $password = null;
     }
 
@@ -35,20 +36,22 @@ if(isset($_POST["login"])){
             $result = null;
             
             if(password_verify($password,$usuario["password"])){
-                //CREO UNA SESION DE USUARIO
-                $password_segura = $usuario["password"];
-                $_SESSION["userdata"] = $usuario;
-                //guardar en los logs un enum para el status
-                $query = "INSERT INTO logs VALUES(null,'$username',NOW(),'success')";
-                $result = mysqli_query($db, $query);
-                header("Location:".APP_URL);
+                // Guardar login
+                guardarLogin($db, $username, 'OK');
+
+                // Utilizar una sesión para guardar los datos del usuario logueado
+                $_SESSION['usuario'] = $usuario;
+                header("Location: ".APP_URL);
             }else{
-                $errores["login"]["password"] = "La contraseña no es correcta";
-                $query = "INSERT INTO logs VALUES(null,'$username',NOW(),'fail')";
-                $result = mysqli_query($db, $query);
+                // Guardar login si la contraseña no es correcta
+                guardarLogin($db, $username, 'FAULT');
+
+                // Si algo falla enviar una sesión con el fallo
+                $errors['login']['password'] = "La contraseña no es correcta.<br>";
             }
         }else{
-            $errores["login"]["username"] = "Los datos no son correctos";
+            guardarLogin($db, $username, 'FAULT');
+            $errors['login']['data'] = "Los datos no son correctos.<br>";
         }
     }
 }
