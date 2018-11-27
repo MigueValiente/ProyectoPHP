@@ -30,8 +30,7 @@ if(isset($_POST["login"])){
         $sql = "SELECT * FROM users WHERE username = '$username' LIMIT 1";
         $login = mysqli_query($db, $sql);
 
-        if($login && mysqli_num_rows($login) == 1){
-            
+        if( $login && mysqli_num_rows($login)==1 ){
             $usuario = mysqli_fetch_assoc($login);
             $result = null;
             

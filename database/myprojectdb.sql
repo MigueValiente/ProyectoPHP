@@ -12,22 +12,6 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de datos: `myprojectdb`
---
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `jobs`
---
-
 CREATE TABLE `jobs` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -67,12 +51,6 @@ CREATE TABLE `logs` (
 INSERT INTO `logs` (`id`, `username`, `ip`, `agent`, `status`, `created_at`) VALUES
 (1, 'pepito00', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0', 'OK', '2018-11-27 12:06:28');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users`
---
-
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -87,10 +65,6 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `users`
---
-
 INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `telefono`, `provincia`, `count`, `date_register`, `date_update`, `password`) VALUES
 (4, 'Miguel', 'Valiente', 'miguelvaliente96', 'valentino@gmail.com', 753719321, 39, 'C', '2018-11-18 18:17:41', '2018-11-18 18:17:41', '$2y$10$su2HQ2LOYiiFWTEN/WMEKOiAWt3JSFUOgaQ7iaXEC5p3Ylmje0./6'),
 (5, 'Paco', 'Pacote', 'paquito96', 'pacote69@gmail.com', 681329861, 5, 'E', '2018-11-18 18:18:30', '2018-11-18 18:18:30', '$2y$10$30002FKF4Wy16MmhbTvg0eoV.xI9NEvW8941BFVCHSfr9UXF6VSNu'),
@@ -99,51 +73,21 @@ INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `telefono`, `
 (8, 'Manue', 'Manolito', 'manolito96', 'manolo@gmail.com', 674232143, 36, 'E', '2018-11-26 13:59:43', '2018-11-26 13:59:43', '$2y$10$U53Qf8ATN/WNUc3ehLB.5u9FKFL.3NlcrdSQPs68S3zTSwdbkt9aq'),
 (9, 'Pepe', 'Espejo', 'pepito00', 'pepito@gmail.com', 723413412, 46, 'C', '2018-11-27 13:02:50', '2018-11-27 13:02:50', '$2y$10$SSE21FRE82dA/ELU6IS4BO2Ovi9XI/35qoLPFqCJ1RhCXULiLKnJG');
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `jobs`
---
 ALTER TABLE `jobs`
   ADD PRIMARY KEY (`id`);
 
---
--- Indices de la tabla `logs`
---
 ALTER TABLE `logs`
   ADD PRIMARY KEY (`id`);
 
---
--- Indices de la tabla `users`
---
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `jobs`
---
 ALTER TABLE `jobs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT de la tabla `logs`
---
 ALTER TABLE `logs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT de la tabla `users`
---
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
