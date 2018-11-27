@@ -18,8 +18,8 @@ CREATE TABLE `jobs` (
   `name` varchar(100) NOT NULL,
   `description` varchar(255) NOT NULL,
   `payment` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `created_at`  TIMESTAMP NOT NULL default now(),
+  `updated_at`  TIMESTAMP NOT NULL default now() on update now(),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `logs` (
   `ip` varchar(255) NOT NULL,
   `agent` varchar(255) NOT NULL,
   `status` enum('OK','FAULT') NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `created_at`  TIMESTAMP NOT NULL default now(),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -60,8 +60,8 @@ CREATE TABLE `users` (
   `telefono` int(9) NOT NULL,
   `provincia` int(11) NOT NULL,
   `count` varchar(255) NOT NULL,
-  `date_register` datetime NOT NULL,
-  `date_update` datetime NOT NULL,
+  `created_at`  TIMESTAMP NOT NULL default now(),
+  `updated_at`  TIMESTAMP NOT NULL default now() on update now(),
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
