@@ -15,6 +15,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `jobs` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `employee_name` varchar(255) UNIQUE,
+  `provincia` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` varchar(255) NOT NULL,
   `payment` int(11) NOT NULL,

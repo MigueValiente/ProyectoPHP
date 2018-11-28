@@ -1,3 +1,7 @@
+i {
+    margin: 0 5px;
+}
+
 #footer {
     background: linear-gradient(90deg, #1c3643, #273b47 25%, #1e5372);
     color: white;
@@ -11,6 +15,27 @@
     width: 80px;
 }
 
+#my_jobs {
+    padding:10px 0;
+}
+
+.card-body{
+
+
+}
+
+#card_job {
+    width: 33%;
+    margin: 10px 0;
+}
+
+p.card-text {
+    height: 50px;
+}
+
+p.card-payment{
+    height:20px;
+}
 .link-important {
     color: #97c983 !important;
 }

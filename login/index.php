@@ -1,7 +1,7 @@
 <?php
 require_once '../setup.php';
 require_once "../database/conexion.php";
-require_once '../database/saveLogs.php';
+require_once '../database/helpers.php';
 
 //Si la sesion esta iniciada reenvia al usuario a la pagina principal
 if(isset($_SESSION["usuario"])){
