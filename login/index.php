@@ -1,10 +1,10 @@
 <?php
 require_once '../setup.php';
 require_once "../database/conexion.php";
-require_once '../database/saveLogs.php';
+require_once '../database/helpers.php';
 
 //Si la sesion esta iniciada reenvia al usuario a la pagina principal
-if(isset($_SESSION["usuario"])){
+if(!empty($_SESSION)){
     header("Location: ".APP_URL);
 }
 
@@ -46,11 +46,11 @@ if(isset($_POST["login"])){
                 guardarLogin($db, $username, 'FAULT');
 
                 // Si algo falla enviar una sesión con el fallo
-                $errors['login']['password'] = "La contraseña no es correcta.<br>";
+                $errores['login']['password'] = "La contraseña no es correcta.<br>";
             }
         }else{
             guardarLogin($db, $username, 'FAULT');
-            $errors['login']['data'] = "Los datos no son correctos.<br>";
+            $errores['login']['data'] = "Los datos no son correctos.<br>";
         }
     }
 }

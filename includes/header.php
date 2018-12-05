@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="<?=APP_URL?>css/styles.css">
     <title>Copia Wordpress</title>
   </head>
@@ -22,54 +23,48 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+            
             <?php if(!isset($_SESSION["usuario"])): ?>
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="<?=APP_URL?>login">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link link-important" href="<?=APP_URL?>register">Registro</a>
                 </li>
-                <?php else: ?>
-                    <?php if($_SESSION["usuario"]["count"] == "C"):?>
+            <?php else: ?>
+                <?php if($_SESSION["usuario"]["count"] == "C"):?>
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=APP_URL?>ofertas">Ofertas</a>
+                            <a class="nav-link" href="<?=APP_URL?>my_jobs"><i class="far fa-clipboard"></i> Mis Ofertas</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?=APP_URL?>create_job"><i class="fas fa-plus"></i>Crear Trabajo</a>
+                        </li>
+                    </ul>
+
+                    
+                <?php else: ?>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?=APP_URL?>my_jobs"><i class="far fa-clipboard"></i> Mis Trabajos</a>
+                        </li>
+                    </ul>
+                <?php endif; ?>
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="<?=APP_URL?>" id="navbarDropdown" role="button" data-toggle="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
                                 <?=$_SESSION["usuario"]["username"]?>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?=APP_URL?>perfil">Perfil</a>
-                                <a class="dropdown-item" href="#">Mis Ofertas</a>
-                                <a class="dropdown-item" href="<?=APP_URL?>create_job">Crear Trabajo</a>
+                                <a class="dropdown-item" href="<?=APP_URL?>profile"><i class="fas fa-user"></i>Perfil</a>
+                                <div class=" dropdown-divider"></div>
+                                <a class="dropdown-item" href="<?=APP_URL?>logout"><i class="fas fa-sign-out-alt"></i>Log Out</a>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link link-important" href="<?=APP_URL?>logout">Log Out</a>
-                        </li>
-                    <?php else: ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?=APP_URL?>ofertas">Ofertas</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="<?=APP_URL?>" id="navbarDropdown" role="button" data-toggle="dropdown">
-                                <?=$_SESSION["usuario"]["username"]?>
-                            </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="<?=APP_URL?>perfil">Perfil</a>
-                            <a class="dropdown-item" href="#">Mis Trabajos</a>
-                        </div>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="<?=APP_URL?>profile"><?=$_SESSION["usuario"]["username"]?></a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link link-important" href="<?=APP_URL?>logout">Log Out</a>
-                        </li>
-                    <?php endif; ?>
-                <?php endif; ?>
-            
+                    </ul>
+            <?php endif; ?>
+                
             </ul>
         </div>  
     </div>

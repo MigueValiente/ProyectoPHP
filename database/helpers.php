@@ -25,4 +25,20 @@ function guardarLogin($db, $username, $status){
     $guardar_login = mysqli_query($db, $sql);
 }
 
+/**
+ * Detect if a user owns a job.
+ * 
+ * @param $db Database connection.
+ * @param $user_id User id.
+ * @param $job_id Job id.
+ */
+function userOwnsJob($db, $user_id, $job_id) {
+    $sql = "SELECT * FROM jobs WHERE id = $job_id AND user_id = $user_id LIMIT 1";
+    $result = mysqli_query($db, $sql);
+    if( mysqli_num_rows($result) == 0 ){
+        return false;
+    }
+    return true;
+}
+
 ?>

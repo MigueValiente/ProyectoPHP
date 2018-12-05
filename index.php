@@ -5,6 +5,9 @@
 ?>
 
 <!-- Body -->
-<h1>Pagina Principal</h1>
+<div class="container">
+    <h1>Pagina Principal</h1>
+</div>
+
 <!-- End Body -->
 <?php require_once "includes/footer.php"?>
