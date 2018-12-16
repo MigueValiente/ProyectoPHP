@@ -46,7 +46,7 @@ if(isset($_POST["login"])){
                 guardarLogin($db, $username, 'FAULT');
 
                 // Si algo falla enviar una sesión con el fallo
-                $errores['login']['password'] = "La contraseña no es correcta.<br>";
+                $errores['login']['password'] = "Los datos no son correctos.<br>";
             }
         }else{
             guardarLogin($db, $username, 'FAULT');

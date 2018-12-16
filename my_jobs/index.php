@@ -11,7 +11,10 @@ if ( empty($_SESSION) ){
 }
 $user_id = $_SESSION['usuario']['id'];
 
-$sql_jobs = "SELECT * FROM jobs WHERE user_id = $user_id";
+
+$sql_jobs = "SELECT * FROM jobs WHERE cliente_id = $user_id";
+$sql_provincias = "SELECT provincias.provincia from provincias JOIN jobs ON provincias.id_provincia = jobs.provincia";
 $result_jobs = mysqli_query($db, $sql_jobs);
+$result_provincia = mysqli_query($db,$sql_provincias);
 
 require_once 'my_jobs.view.php';

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="<?=APP_URL?>css/styles.css">
-    <title>Copia Wordpress</title>
+    <title>WorKing</title>
   </head>
   <body>
   <!-- Header -->
@@ -57,7 +57,7 @@
                                 <?=$_SESSION["usuario"]["username"]?>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?=APP_URL?>profile"><i class="fas fa-user"></i>Perfil</a>
+                                <a class="dropdown-item" href="<?=APP_URL?>profile\?section=name"><i class="fas fa-user"></i>Perfil</a>
                                 <div class=" dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?=APP_URL?>logout"><i class="fas fa-sign-out-alt"></i>Log Out</a>
                             </div>

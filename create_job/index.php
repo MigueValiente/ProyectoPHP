@@ -9,6 +9,7 @@
 
     if( isset($_POST['new_job']) ){
         $jobname = trim($_POST['jobname']) ?? null;
+        $provincia = $_SESSION['usuario']['provincia_id'] ?? null;
         $description = trim($_POST['jobdesc']) ?? null;
         $payment = $_POST['jobpayment'] ?? null;
 
@@ -27,6 +28,7 @@
             $username = null;
         }
 
+        //Payment
         if(empty($payment)){
             $errores['jobpayment']['vacio'] = "El campo remuneracion no puede estar vacio.<br>";
             $payment = null;
@@ -46,7 +48,7 @@
         if(empty($errores) ){
             // Insertar usuario en la base de datos
             $user_id = intval($_SESSION['usuario']['id']);
-            $sql = "INSERT INTO jobs VALUES(NULL, $user_id,'$jobname','$description','$payment',NOW(), NOW())";
+            $sql = "INSERT INTO jobs(id,cliente_id,provincia,name,description,payment,created_at,updated_at) VALUES(NULL, $user_id,$provincia,'$jobname','$description','$payment',NOW(), NOW())";
 
             $guardar = mysqli_query($db, $sql);
 

@@ -20,7 +20,7 @@ function guardarLogin($db, $username, $status){
 
     $browser = $_SERVER['HTTP_USER_AGENT'];
 
-    $sql = "INSERT INTO logins VALUES(NULL, '$username', '$ip', '$browser', '$status', NOW())";
+    $sql = "INSERT INTO logs VALUES(NULL, '$username', '$ip', '$browser', '$status', NOW())";
 
     $guardar_login = mysqli_query($db, $sql);
 }
@@ -33,8 +33,17 @@ function guardarLogin($db, $username, $status){
  * @param $job_id Job id.
  */
 function userOwnsJob($db, $user_id, $job_id) {
-    $sql = "SELECT * FROM jobs WHERE id = $job_id AND user_id = $user_id LIMIT 1";
+    $sql = "SELECT * FROM jobs WHERE id = $job_id AND cliente_id = $user_id LIMIT 1";
     $result = mysqli_query($db, $sql);
+    if( mysqli_num_rows($result) == 0 ){
+        return false;
+    }
+    return true;
+}
+
+function conseguirProvincia($id){
+    $sql = "SELECT provincia from provincias WHERE id_provincia = id LIMIT 1";
+    $result = mysqli_query($db,$sql);
     if( mysqli_num_rows($result) == 0 ){
         return false;
     }

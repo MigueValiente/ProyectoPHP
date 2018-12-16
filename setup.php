@@ -14,7 +14,7 @@ define('APP_URL', $_SERVER['REQUEST_SCHEME']."://".$_SERVER['HTTP_HOST']."/".'Pr
 define('APP_PATH', __DIR__);
 
 /** Nombre de la aplicacion */
-define('APP_NAME', "Project");
+define('APP_NAME', "WorKing");
 
 //Iniciar la sesion
 session_start();

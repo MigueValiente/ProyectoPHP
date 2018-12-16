@@ -66,7 +66,6 @@
         }
 
         //USERNAME
-        //var_dump($username);
         if(empty($username)){
             $errores["username"]["vacio"] = "El campo usuario es obligatorio.<br>";
             $username = null;
